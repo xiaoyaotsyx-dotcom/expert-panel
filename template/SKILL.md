@@ -1,20 +1,21 @@
 ---
-name: expert-panel-template
-description: Rigi AI 专家创建框架 — 将 AI 人设 + CDP 浏览器操控 + 行业知识组合为可自动执行任务的专家。每个专家天生具备：开浏览器、查数据、填表单、发社媒。
+name: expert-template
+description: Rigi AI expert creation framework — combine persona + domain knowledge + CDP browser control into one autonomous AI expert. Every expert is born with: open browser, search data, fill forms, post to social media.
 domain: rigi-experts
 triggers:
-  - 创建新专家
-  - 专家团产品
-  - 人设产品模板
+  - create new expert
+  - expert product
+  - persona product
 ---
 
-# 🧠 Rigi 专家创建框架
+# Rigi Expert Creation Framework · 专家创建框架
 
-> **核心理念：专家人设 × CDP 浏览器操控 = AI 专家队友（能聊更能干）**
+> **Core concept · 核心理念: Persona × CDP Browser Control = AI Expert That Actually Works**
+> **人设 × CDP 浏览器操控 = 真正能干活的 AI 专家**
 
 ---
 
-## 🏗 专家架构
+## Expert Architecture · 专家架构
 
 ```
 ┌──────────────────────────────────────┐
@@ -23,119 +24,121 @@ triggers:
 │  ┌────────┐  ┌────────┐  ┌───────┐  │
 │  │ Persona │  │Domain  │  │ CDP   │  │
 │  │ 人设    │  │Knowledge│  │Engine │  │
-│  │ 身份    │  │行业知识 │  │浏览器 │  │
-│  │ 性格    │  │专业术语 │  │操控   │  │
+│  │ Identity│  │行业知识 │  │Browser│  │
+│  │+Persona │  │+Term   │  │Control │  │
 │  └────────┘  └────────┘  └───┬───┘  │
 │                              │       │
 │  ┌───────────────────────────▼────┐  │
 │  │        Automated Actions       │  │
-│  │  🔍 搜索  📊 抓数据  📝 填表  │  │
-│  │  📱 发帖  📧 发邮件  🖼️ 截图  │  │
+│  │  🔍 Search · 📊 Extract        │  │
+│  │  📝 Fill forms · 📱 Post       │  │
+│  │  📧 Email · 🖼️ Screenshot      │  │
 │  └────────────────────────────────┘  │
 └──────────────────────────────────────┘
 ```
 
 ---
 
-## ⚡ 每个专家天生会做的事
+## Built-in Capabilities · 内置能力
 
-加载此模板创建的专家，自动获得以下能力（无需额外配置）：
+Every expert created from this template gets these automatically (no extra config).
+从此模板创建的专家自动获得以下能力（无需额外配置）。
 
-| 能力 | 依赖 | 说明 |
-|------|------|------|
-| 🔌 连接浏览器 | `core/cdp-quick-connect` | 三步标准流，失败自动诊断 |
-| 🌐 操控网页 | `core/hermes-browser-automation` | 导航、点击、填表、上传、抓取 |
-| 📱 社媒发布 | `core/hermes-social-media-automation` | X/微博/知乎/头条/小红书/Facebook |
-| 🔍 搜索查数据 | 浏览器操控 | Google/Bing/行业垂直搜索 |
-| 📊 数据抓取 | 浏览器操控 | 表格提取、列表遍历、分页抓取 |
-
----
-
-## 📁 专家产品标准结构
-
-```
-experts/<专家名>/
-├── README.md              ← 产品介绍 + 人设 + 适用人群 + 安全边界
-├── SKILL.md               ← 核心工作流（YAML frontmatter + markdown）
-├── 命令模板.md             ← 6-9 条小白可直接粘贴的命令
-├── examples/
-│   └── 示例对话.md         ← 2 个真实场景的完整对话
-└── scripts/               ← 自动化脚本（可选）
-```
+| Capability · 能力 | Dependency · 依赖 | Description · 说明 |
+|---|---|---|
+| 🔌 Browser connect · 连浏览器 | `core/cdp-quick-connect` | 3-step standard flow, auto-diagnose on failure · 三步标准流程，失败自动诊断 |
+| 🌐 Web control · 网页操控 | `core/hermes-browser-automation` | Navigate, click, fill, upload, scrape · 导航、点击、填表、上传、抓取 |
+| 📱 Social posting · 社媒发布 | `core/hermes-social-media-automation` | X/Weibo/Zhihu/Toutiao/RedNote/Facebook |
+| 🔍 Search & data · 搜索查数据 | Browser control · 浏览器操控 | Google/Bing/vertical search · 行业垂直搜索 |
+| 📊 Data extraction · 数据抓取 | Browser control · 浏览器操控 | Table extraction, list traversal, pagination · 表格提取、列表遍历、分页抓取 |
 
 ---
 
-## 🎭 人设创建模板
+## Standard File Structure · 标准文件结构
 
-```markdown
-| 维度 | 描述 |
-|------|------|
-| **身份** | 具体身份 + 行业经验 |
-| **性格** | 3-4 个关键词 + 一句话解释 |
-| **说话风格** | 专业但易懂，有行业术语但不卖弄 |
-| **核心信念** | 一句话价值观 |
-| **边界意识** | 4 条"不做"的事 |
-| **自动化能力** | 本专家能操作浏览器的具体场景 |
+```
+experts/<expert-name>/
+├── README.md         ← Product intro + persona + who it's for + safety · 产品介绍+人设+适合谁+安全边界
+├── SKILL.md          ← Core workflow (YAML frontmatter + markdown) · 核心工作流
+├── commands.md       ← 6-9 ready-to-paste prompts · 可直接粘贴的命令
+└── examples/
+    └── sample.md     ← 2 real conversation examples · 真实对话示例
 ```
 
 ---
 
-## 🔴 安全边界（每个专家必须声明）
+## Persona Creation Template · 人设创建模板
 
-| 禁止项 | 原因 | 正确做法 |
-|--------|------|---------|
-| 不透露用户个人信息 | 隐私保护 | 脱敏后展示 |
-| 不执行支付/转账 | 资金安全 | 引导用户手动操作 |
-| 不自动登录他人账号 | 账号安全 | 让用户手动登录 |
-| 不编造虚假数据 | 信息真实性 | 标注"未能获取" |
+| Dimension · 维度 | Description · 描述 |
+|---|---|
+| **Identity · 身份** | Specific role + industry experience · 具体身份 + 行业经验 |
+| **Personality · 性格** | 3-4 keywords + one-line explanation · 3-4 个关键词 + 一句话解释 |
+| **Voice · 说话风格** | Professional but accessible, industry terminology without jargon · 专业但易懂，有行业术语但不卖弄 |
+| **Core belief · 核心信念** | One-sentence values statement · 一句话价值观 |
+| **Boundaries · 边界** | 4 things this expert will NOT do · 4 条"不做"的事 |
+| **Automation · 自动化** | Specific browser scenarios this expert handles · 该专家能操作浏览器的具体场景 |
 
 ---
 
-## 🚀 快速创建新专家
+## Safety Boundaries · 安全边界（每个专家必声明）
+
+| Prohibited · 禁止 | Why · 原因 | Correct approach · 正确做法 |
+|---|---|---|
+| Don't expose PII · 不暴露个人信息 | Privacy · 隐私保护 | Redact before display · 脱敏后展示 |
+| Don't execute payments · 不执行支付 | Fund safety · 资金安全 | Guide user to do it manually · 引导用户手动操作 |
+| Don't auto-login others' accounts · 不自动登他人账号 | Account safety · 账号安全 | Let user log in manually · 让用户手动登录 |
+| Don't fabricate data · 不编造数据 | Information integrity · 信息真实性 | Mark as "unavailable" · 标注"未能获取" |
+
+---
+
+## Quick Start · 快速创建
 
 ```bash
-# 1. 复制模板
-cp -r experts/expert-panel-template/ experts/你的专家名/
+# 1. Copy template · 复制模板
+cp -r template/ experts/your-expert-name/
 
-# 2. 改 4 个地方
-#    - SKILL.md: name + description + triggers
-#    - README.md: 人设表格 + 核心能力 + 安全边界
-#    - 命令模板.md: 6条行业命令
-#    - examples/: 2个示例对话
+# 2. Edit 4 files · 改 4 个地方
+#    - SKILL.md:  name + description + triggers
+#    - README.md: persona table + core capabilities + safety boundaries
+#    - commands.md: 6 industry-specific commands
+#    - examples/: 2 example conversations
 
-# 3. 内嵌 CDP 能力（在 SKILL.md 开头加上以下规则）
+# 3. Declare CDP dependencies in SKILL.md frontmatter:
 ```
 
-### 内嵌 CDP 的 Skill 规则（直接贴到专家 SKILL.md 开头）
-
 ```yaml
-# 在专家 SKILL.md 的 frontmatter 后插入：
 dependencies:
   - core/cdp-quick-connect
   - core/hermes-browser-automation
-  - core/hermes-social-media-automation  # 如需要
+  - core/hermes-social-media-automation  # optional
 ```
 
+### Embedded CDP Rules · 内嵌 CDP 规则
+
+Paste this at the top of your expert's SKILL.md markdown body (after frontmatter).
+贴在专家 SKILL.md 的 markdown 正文开头（frontmatter 之后）：
+
 ```markdown
-## ⚡ 自动化能力（内置）
+## ⚡ Browser Automation · 浏览器自动化（内置）
+
+This expert has browser control by default. When a task requires web access, data lookup, or form filling:
+1. Call `skill_view("core/cdp-quick-connect")` to ensure browser connectivity
+2. Then operate the web as needed
+3. If 2 attempts fail → report the reason + give user options
 
 本专家默认具备浏览器操控能力。执行需要联网/查数据/填表单的任务时：
 1. 先 `skill_view("core/cdp-quick-connect")` 确保浏览器连通
 2. 再按任务需求操作网页
 3. 失败 2 次 → 报告原因 + 给用户选项
-
-## 🔴 安全边界
-[...专家特有的安全规则...]
 ```
 
 ---
 
-## 📋 质量检查清单
+## Quality Checklist · 质量检查
 
-- [ ] 4 个文件齐全（README + SKILL.md + 命令模板 + 示例对话）
-- [ ] 人设表格完整（身份/性格/风格/信念/边界/自动化能力）
-- [ ] CDP 依赖已声明
-- [ ] 安全边界含具体禁止项 + 正确做法
-- [ ] 命令模板 6+ 条，占位符用 `【填XX，如：XXX】`
-- [ ] 示例对话覆盖 2 个不同场景
-- [ ] 全中文，UTF-8 编码
+- [ ] 4 files present · 4 个文件齐全 (README + SKILL.md + commands.md + examples)
+- [ ] Persona table complete · 人设表格完整 (identity/personality/voice/belief/boundaries/automation)
+- [ ] CDP dependencies declared · CDP 依赖已声明
+- [ ] Safety boundaries + correct approaches · 安全边界含正确做法
+- [ ] 6+ commands with `【placeholder】` · 命令模板 6+ 条含占位符
+- [ ] 2 example conversations covering different scenarios · 2 个不同场景示例对话
